@@ -185,7 +185,7 @@ class BerandaPage extends StatelessWidget {
 
             // Artikel ------------------------------------------------------------------
             Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+                padding: const EdgeInsets.only(left: 30),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

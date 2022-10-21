@@ -1,18 +1,18 @@
 import 'package:alphago/data/color_theme.dart';
 import 'package:alphago/page/home.dart';
-import 'package:alphago/page/register.dart';
+import 'package:alphago/page/login.dart';
 import 'package:flutter/material.dart';
 import 'package:d_view/d_view.dart';
 import 'package:d_info/d_info.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   // final LoginService _loginService = LoginService();
 
   final _emailController = TextEditingController();
@@ -97,15 +97,31 @@ class _LoginPageState extends State<LoginPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
+                                Material(
+                                  borderRadius: BorderRadius.circular(25),
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(25),
+                                    onTap: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                    child: Image.asset(
+                                      'assets/ic_back.png',
+                                      width: 40,
+                                    ),
+                                  ),
+                                ),
                                 Text(
-                                  'Login',
+                                  'Register',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w700,
                                       fontSize: 20,
                                       color: Colors.grey.shade800),
                                 ),
+                                SizedBox(
+                                  width: 40,
+                                )
                               ],
                             ),
                             SizedBox(
@@ -115,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Hi, Welcome Back! ',
+                                  'Hi, Welcome! ',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w700,
                                       fontSize: 24,
@@ -123,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                                 SizedBox(height: 4),
                                 Text(
-                                  'Happy to see you again, please login here',
+                                  'Let’s create your account',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w400,
                                       fontSize: 16,
@@ -138,9 +154,41 @@ class _LoginPageState extends State<LoginPage> {
                             //   AppAsset.il_login,
                             //   height: 120,
                             // ),
-                            SizedBox(
-                              height: 30,
+
+                            Text(
+                              'Username',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 15,
+                                  color: AppColor.dark),
                             ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            TextFormField(
+                              controller: _emailController,
+                              validator: (value) =>
+                                  value == '' ? 'Username harus diisi' : null,
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              style: const TextStyle(color: Colors.grey),
+                              decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  // borderSide: BorderSide.,
+                                ),
+                                labelStyle: TextStyle(color: AppColor.primary),
+                                hintText: 'Enter Username',
+                                isDense: true,
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 20,
+                                  vertical: 16,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 16),
                             Text(
                               'Email Address',
                               style: TextStyle(
@@ -209,26 +257,58 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Row(
-                                  children: [SizedBox(height: 16)],
-                                ),
-                                GestureDetector(
-                                  onTap: () {
-                                    // Get.to(() => const LupaKs());
-                                  },
-                                  child: const Text(
-                                    'Forgot Password',
-                                    style: TextStyle(
-                                        color: AppColor.orange,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                )
-                              ],
+                            SizedBox(height: 4),
+                            Text(
+                              'Your password must be at least 6 characters',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                  color: AppColor.grey),
                             ),
+                            SizedBox(height: 16),
+                            Text(
+                              'Confirm Password',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 15,
+                                  color: AppColor.dark),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            TextFormField(
+                              controller: _passwordController,
+                              validator: (value) =>
+                                  value == '' ? 'Password harus diisi' : null,
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              obscureText: true,
+                              style: const TextStyle(color: Colors.grey),
+                              decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  // borderSide: BorderSide.none,
+                                ),
+                                labelStyle: TextStyle(color: AppColor.primary),
+                                hintText: 'Enter your password',
+                                isDense: true,
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 20,
+                                  vertical: 16,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 4),
+                            Text(
+                              'Your password must be at least 6 characters',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                  color: AppColor.grey),
+                            ),
+
                             SizedBox(height: 50),
                             Material(
                               color: AppColor.primary,
@@ -251,7 +331,7 @@ class _LoginPageState extends State<LoginPage> {
                                       padding: EdgeInsets.symmetric(
                                           horizontal: 20, vertical: 16),
                                       child: Text(
-                                        'Login',
+                                        'Register',
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 16,
@@ -275,19 +355,15 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text(
-                            'Don’t have an account? ',
+                            'Already have an account? ',
                             style: TextStyle(fontSize: 14, color: Colors.grey),
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (_) => RegisterPage(),
-                                ),
-                              );
+                              Navigator.of(context).pop();
                             },
                             child: const Text(
-                              'Register ',
+                              'Login ',
                               style: TextStyle(
                                 color: AppColor.primary,
                                 fontWeight: FontWeight.bold,
