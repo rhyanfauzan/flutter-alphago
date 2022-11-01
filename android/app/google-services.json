@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "322307588118",
+    "firebase_url": "https://alphago-544c7-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "alphago-544c7",
+    "storage_bucket": "alphago-544c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322307588118:android:144816db5b370da9e43537",
+        "android_client_info": {
+          "package_name": "com.example.alphago"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "322307588118-errkuqmet0lh8dddvb8o8c8m7dj8sn7p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL6UusT1GizqmXrIiEFrJ5b9JyJPEXDGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "322307588118-errkuqmet0lh8dddvb8o8c8m7dj8sn7p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "322307588118-alsf7539c7rbilv4h4er5218t8f4or7f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.alphago"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322307588118:android:0e4effb9da111393e43537",
+        "android_client_info": {
+          "package_name": "com.ryandev.alphago"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "322307588118-errkuqmet0lh8dddvb8o8c8m7dj8sn7p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL6UusT1GizqmXrIiEFrJ5b9JyJPEXDGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "322307588118-errkuqmet0lh8dddvb8o8c8m7dj8sn7p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "322307588118-alsf7539c7rbilv4h4er5218t8f4or7f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.alphago"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
