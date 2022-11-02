@@ -46,12 +46,12 @@ class UserPage extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontSize: 14,
                             )),
-                        Text('${userName}',
+                        Text('$userName',
                             style: const TextStyle(
                               fontWeight: FontWeight.w700,
                               fontSize: 18,
                             )),
-                        Text('${userEmail}',
+                        Text('$userEmail',
                             style: const TextStyle(
                               color: AppColor.grey,
                               fontWeight: FontWeight.w400,

@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
           return const KonsultasiPage();
         }
         if (cHome.indexPage == 2) {
-          return UserPage();
+          return const UserPage();
         }
         return const KonsultasiPage();
       }),

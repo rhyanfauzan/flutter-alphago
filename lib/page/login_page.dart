@@ -3,7 +3,6 @@ import 'package:alphago/config/app_route.dart';
 import 'package:alphago/page/register_page.dart';
 import 'package:alphago/source/user_source.dart';
 import 'package:flutter/material.dart';
-import 'package:d_view/d_view.dart';
 import 'package:d_info/d_info.dart';
 
 class LoginPage extends StatefulWidget {
@@ -52,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Form(
@@ -74,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 30,
                             ),
                             Column(
@@ -87,8 +86,8 @@ class _LoginPageState extends State<LoginPage> {
                                       fontSize: 24,
                                       color: Colors.grey.shade800),
                                 ),
-                                SizedBox(height: 4),
-                                Text(
+                                const SizedBox(height: 4),
+                                const Text(
                                   'Happy to see you again, please login here',
                                   style: TextStyle(
                                       fontWeight: FontWeight.w400,
@@ -97,24 +96,24 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 30,
                             ),
                             // Image.asset(
                             //   AppAsset.il_login,
                             //   height: 120,
                             // ),
-                            SizedBox(
+                            const SizedBox(
                               height: 30,
                             ),
-                            Text(
+                            const Text(
                               'Email Address',
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 15,
                                   color: AppColor.dark),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             TextFormField(
@@ -131,7 +130,8 @@ class _LoginPageState extends State<LoginPage> {
                                   borderRadius: BorderRadius.circular(8),
                                   // borderSide: BorderSide.,
                                 ),
-                                labelStyle: TextStyle(color: AppColor.primary),
+                                labelStyle:
+                                    const TextStyle(color: AppColor.primary),
                                 hintText: 'Enter your email address',
                                 isDense: true,
                                 contentPadding: const EdgeInsets.symmetric(
@@ -140,15 +140,15 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                             ),
-                            SizedBox(height: 16),
-                            Text(
+                            const SizedBox(height: 16),
+                            const Text(
                               'Password',
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 15,
                                   color: AppColor.dark),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 8,
                             ),
                             TextFormField(
@@ -166,7 +166,8 @@ class _LoginPageState extends State<LoginPage> {
                                   borderRadius: BorderRadius.circular(8),
                                   // borderSide: BorderSide.none,
                                 ),
-                                labelStyle: TextStyle(color: AppColor.primary),
+                                labelStyle:
+                                    const TextStyle(color: AppColor.primary),
                                 hintText: 'Enter your password',
                                 isDense: true,
                                 contentPadding: const EdgeInsets.symmetric(
@@ -178,9 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Row(
-                                  children: [SizedBox(height: 16)],
-                                ),
+                                const SizedBox(height: 16),
                                 GestureDetector(
                                   onTap: () {
                                     // Get.to(() => const LupaKs());
@@ -195,7 +194,7 @@ class _LoginPageState extends State<LoginPage> {
                                 )
                               ],
                             ),
-                            SizedBox(height: 50),
+                            const SizedBox(height: 50),
                             Material(
                               color: AppColor.primary,
                               borderRadius: BorderRadius.circular(8),
@@ -209,22 +208,16 @@ class _LoginPageState extends State<LoginPage> {
                                 //   );
                                 // },
                                 borderRadius: BorderRadius.circular(8),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 20, vertical: 16),
-                                      child: Text(
-                                        'Login',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                        ),
-                                      ),
+                                child: const Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: 20, vertical: 16),
+                                  child: Text(
+                                    'Login',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
                                     ),
-                                  ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -232,7 +225,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Padding(
@@ -248,7 +241,7 @@ class _LoginPageState extends State<LoginPage> {
                             onTap: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (_) => RegisterPage(),
+                                  builder: (_) => const RegisterPage(),
                                 ),
                               );
                             },
@@ -264,7 +257,7 @@ class _LoginPageState extends State<LoginPage> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                   ],

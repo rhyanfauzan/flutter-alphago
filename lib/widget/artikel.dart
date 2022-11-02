@@ -40,7 +40,7 @@ class _ArtikelState extends State<Artikel> {
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(10)),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
                     child: Image.asset(
                       'assets/artikel1.png',
                       width: 220,
@@ -73,7 +73,7 @@ class _ArtikelState extends State<Artikel> {
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(10)),
                   child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
                     child: Image.asset(
                       'assets/artikel1.png',
                       width: 220,

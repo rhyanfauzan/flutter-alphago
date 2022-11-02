@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:alphago/config/app_route.dart';
 import 'package:alphago/source/user_source.dart';
 
-import '../config/app_asset.dart';
 import '../config/app_color.dart';
-import '../widget/button_custom.dart';
 
 class SigninPage extends StatelessWidget {
   SigninPage({Key? key}) : super(key: key);
@@ -123,7 +121,8 @@ class SigninPage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(8),
                                   // borderSide: BorderSide.,
                                 ),
-                                labelStyle: TextStyle(color: AppColor.primary),
+                                labelStyle:
+                                    const TextStyle(color: AppColor.primary),
                                 hintText: 'Enter your email address',
                                 isDense: true,
                                 contentPadding: const EdgeInsets.symmetric(
@@ -158,7 +157,8 @@ class SigninPage extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(8),
                                   // borderSide: BorderSide.none,
                                 ),
-                                labelStyle: TextStyle(color: AppColor.primary),
+                                labelStyle:
+                                    const TextStyle(color: AppColor.primary),
                                 hintText: 'Enter your password',
                                 isDense: true,
                                 contentPadding: const EdgeInsets.symmetric(
@@ -167,12 +167,14 @@ class SigninPage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
+                            const SizedBox(
+                              height: 12,
+                            ),
+                            Row(
+                              // crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Row(
-                                  children: [SizedBox(height: 16)],
-                                ),
+                                const SizedBox(height: 16),
                                 GestureDetector(
                                   onTap: () {
                                     // Get.to(() => const LupaKs());
@@ -187,23 +189,16 @@ class SigninPage extends StatelessWidget {
                                 )
                               ],
                             ),
-                            SizedBox(height: 50),
+                            const SizedBox(height: 50),
                             Material(
                               color: AppColor.primary,
                               borderRadius: BorderRadius.circular(8),
                               child: InkWell(
                                 onTap: () => login(context),
-                                // onTap: () {
-                                //   Navigator.of(context).push(
-                                //     MaterialPageRoute(
-                                //       builder: (context) => HomePage(),
-                                //     ),
-                                //   );
-                                // },
                                 borderRadius: BorderRadius.circular(8),
                                 child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     const Padding(
                                       padding: EdgeInsets.symmetric(
@@ -224,7 +219,7 @@ class SigninPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Padding(
@@ -256,7 +251,7 @@ class SigninPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                   ],

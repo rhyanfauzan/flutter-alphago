@@ -4,6 +4,8 @@ import 'package:alphago/config/session.dart';
 
 import '../model/user.dart';
 
+CollectionReference tblUser = FirebaseFirestore.instance.collection('User');
+
 class UserSource {
   static Future<Map<String, dynamic>> signIn(
     String email,
@@ -15,8 +17,8 @@ class UserSource {
           .signInWithEmailAndPassword(email: email, password: password);
       response['success'] = true;
       response['message'] = 'Sign In Success';
-      String uid = credential.user!.uid;
-      User user = await getWhereId(uid);
+      String? emailId = credential.user!.email;
+      User user = await getWhereEmail(emailId!);
       Session.saveUser(user);
     } on auth.FirebaseAuthException catch (e) {
       response['success'] = false;
@@ -32,10 +34,43 @@ class UserSource {
     return response;
   }
 
-  static Future<User> getWhereId(String id) async {
+  // register
+  @override
+  Future<UserSource?> createUserWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    Map<String, dynamic> response = {};
+    try {
+      final userCredential =
+          await auth.FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      response['success'] = true;
+      response['message'] = 'Register Success';
+    } on auth.FirebaseAuthException catch (e) {
+      response['success'] = false;
+
+      response['message'] = 'Register in failed';
+    }
+  }
+  // end register
+
+  // get user where email
+  static Future<User> getWhereEmail(String email) async {
     DocumentReference<Map<String, dynamic>> ref =
-        FirebaseFirestore.instance.collection('User').doc(id);
+        FirebaseFirestore.instance.collection('User').doc(email);
     DocumentSnapshot<Map<String, dynamic>> doc = await ref.get();
     return User.fromJson(doc.data()!);
+  }
+
+  // add user to firestore
+  static Future<void> registerUser({required User item}) async {
+    DocumentReference ref = tblUser.doc(item.email);
+    await ref.set(item.toJson()).whenComplete(() {
+      print("User berhasil ditambahkan keFirestore");
+    }).catchError((e) => print('User gagal ditambahkan keFirestore'));
+    print('menambahkan user ke firestore');
   }
 }

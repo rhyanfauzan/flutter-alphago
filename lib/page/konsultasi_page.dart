@@ -20,7 +20,7 @@ class KonsultasiPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Text('Kami akan memberi tahu anda ketika fitur ini sudah siap')
+             const Text('Kami akan memberi tahu anda ketika fitur ini sudah siap')
             ],
           ),
         ),
