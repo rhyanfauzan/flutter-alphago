@@ -7,7 +7,7 @@ import '../controller/c_user.dart';
 import '../model/user.dart';
 
 class Session {
-  static Future<bool> saveUser(User user) async {
+  static Future<bool> saveUser(UserModel user) async {
     final pref = await SharedPreferences.getInstance();
     Map<String, dynamic> mapUser = user.toJson();
     String stringUser = jsonEncode(mapUser);
@@ -19,13 +19,13 @@ class Session {
     return success;
   }
 
-  static Future<User> getUser() async {
-    User user = User(); // default value
+  static Future<UserModel> getUser() async {
+    UserModel user = UserModel(); // default value
     final pref = await SharedPreferences.getInstance();
     String? stringUser = pref.getString('user');
     if (stringUser != null) {
       Map<String, dynamic> mapUser = jsonDecode(stringUser);
-      user = User.fromJson(mapUser);
+      user = UserModel.fromJson(mapUser);
     }
     final cUser = Get.put(CUser());
     cUser.setData(user);
@@ -36,7 +36,7 @@ class Session {
     final pref = await SharedPreferences.getInstance();
     bool success = await pref.remove('user');
     final cUser = Get.put(CUser());
-    cUser.setData(User());
+    cUser.setData(UserModel());
     return success;
   }
 }

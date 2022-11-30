@@ -1,5 +1,5 @@
-class User {
-  User({
+class UserModel {
+  UserModel({
     this.id,
     this.name,
     this.email,
@@ -11,7 +11,7 @@ class User {
   String? email;
   String? password;
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
+  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
         id: json["id"],
         name: json["name"],
         email: json["email"],

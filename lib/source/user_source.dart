@@ -18,7 +18,7 @@ class UserSource {
       response['success'] = true;
       response['message'] = 'Sign In Success';
       String? emailId = credential.user!.email;
-      User user = await getWhereEmail(emailId!);
+      UserModel user = await getWhereEmail(emailId!);
       Session.saveUser(user);
     } on auth.FirebaseAuthException catch (e) {
       response['success'] = false;
@@ -58,15 +58,15 @@ class UserSource {
   // end register
 
   // get user where email
-  static Future<User> getWhereEmail(String email) async {
+  static Future<UserModel> getWhereEmail(String email) async {
     DocumentReference<Map<String, dynamic>> ref =
         FirebaseFirestore.instance.collection('User').doc(email);
     DocumentSnapshot<Map<String, dynamic>> doc = await ref.get();
-    return User.fromJson(doc.data()!);
+    return UserModel.fromJson(doc.data()!);
   }
 
   // add user to firestore
-  static Future<void> registerUser({required User item}) async {
+  static Future<void> registerUser({required UserModel item}) async {
     DocumentReference ref = tblUser.doc(item.email);
     await ref.set(item.toJson()).whenComplete(() {
       print("User berhasil ditambahkan keFirestore");

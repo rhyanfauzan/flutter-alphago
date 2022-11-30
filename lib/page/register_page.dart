@@ -45,7 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
     if (formKey.currentState!.validate()) {
       try {
         // menambahkan user ke firestore
-        final dtBaru = User(
+        final dtBaru = UserModel(
             id: idUser,
             name: _nameController.text,
             email: _emailController.text,

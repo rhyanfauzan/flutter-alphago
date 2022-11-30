@@ -16,4 +16,5 @@ class AppAsset {
   static const iconBeranda = 'assets/ic_home.png';
   static const iconKonsul = 'assets/ic_konsul.png';
   static const iconUser = 'assets/ic_user.png';
+  static const siginGoogle = 'assets/sigin_google.png';
 }

@@ -1,15 +1,14 @@
+import 'package:alphago/source/auth_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:alphago/config/app_color.dart';
 import 'package:alphago/config/app_route.dart';
-import 'package:alphago/config/session.dart';
 import 'package:alphago/page/signin_page.dart';
 import 'package:intl/date_symbol_data_local.dart';
-
 import 'firebase_options.dart';
-import 'model/user.dart';
 import 'page/home_page.dart';
 
 Future<void> main() async {
@@ -17,6 +16,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await GetStorage.init();
   initializeDateFormatting('en_US');
   runApp(const MyApp());
 }
@@ -38,17 +38,20 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
+        // '/': (context) {
+        //   return FutureBuilder(
+        //     future: Session.getUser(),
+        //     builder: (context, AsyncSnapshot<User> snapshot) {
+        //       if (snapshot.data == null || snapshot.data!.id == null) {
+        //         return SigninPage();
+        //       } else {
+        //         return HomePage();
+        //       }
+        //     },
+        //   );
+        // },
         '/': (context) {
-          return FutureBuilder(
-            future: Session.getUser(),
-            builder: (context, AsyncSnapshot<User> snapshot) {
-              if (snapshot.data == null || snapshot.data!.id == null) {
-                return SigninPage();
-              } else {
-                return HomePage();
-              }
-            },
-          );
+          return AuthService().handleAuthState();
         },
         AppRoute.home: (context) => HomePage(),
         AppRoute.signin: (context) => SigninPage(),
